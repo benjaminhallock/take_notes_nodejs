@@ -30,7 +30,7 @@ app.engine('hbs', require('hbs').__express);
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/myapp', {
 });
-// User Model
+// User Model`
 const userSchema = new mongoose.Schema({
     username: { type: String, unique: true },
     password: String,
