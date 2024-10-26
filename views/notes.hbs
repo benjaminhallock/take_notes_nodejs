@@ -1,0 +1,29 @@
+
+
+{{!-- views/notes.hbs --}}
+<div class="nav">
+    <h2>Welcome, {{username}}!</h2>
+    <a href="/logout"><button>Logout</button></a>
+</div>
+
+{{#if error}}
+    <div class="error">{{error}}</div>
+{{/if}}
+
+<form action="/notes" method="POST">
+    <div class="form-group">
+        <label for="note">New Note:</label>
+        <textarea id="note" name="note" required></textarea>
+    </div>
+    <button type="submit">Add Note</button>
+</form>
+
+<div id="notes-list">
+    {{#if notes.length}}
+        {{#each notes}}
+            <div class="note">{{this}}</div>
+        {{/each}}
+    {{else}}
+        <p>No notes yet. Add your first note above!</p>
+    {{/if}}
+</div>
