@@ -80,18 +80,18 @@ app.get('/register', (req, res) => {
 
 app.post('/register', [
     body('username').isLength({ min: 5 }).withMessage('Username must be at least 5 characters long'),
-    body('password').isLength({ min: 5 }).withMessage('Password must be at least 5 characters long')
+    body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long')
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        req.session.error = errors.array().map(err => err.msg).join(', ');
+        req.session.error = errors.array().map(error => error.msg).join(', ');
         return res.redirect('/register');
     }
+
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
         const user = new User({
             username: req.body.username,
-            password: hashedPassword,
+            password: req.body.password,
             notes: []
         });
         await user.save();

@@ -1,56 +1,28 @@
-{{!-- views/layout.hbs --}}
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Note Taking App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .error {
-            color: red;
-            margin-bottom: 10px;
-        }
-        .note {
-            background: #f0f0f0;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        input[type="text"],
-        input[type="password"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-        button {
-            padding: 8px 15px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    {{{body}}}
-</body>
-</html>
 
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Note Taking App</title>
+</head>
+<header class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Note Taking App
+            </h1>
+        </div>
+    </div>
+
+    <body class="has-background-light">
+        <section class="section">
+            <div class="container">
+                <div class="notification is-primary">
+                    {{{body}}}
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>
